@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stonks | A meme Trading Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+    <div id="loginContainer">
+        <img id="logo" src="{{ url_for('static', filename='pictures/logo.png') }}">
+        <h1>Stonks</h1>
+        <h2 style="margin-bottom: 40px;">A Meme Trading Platform</h2>
+        <form method=POST action="{{ url_for('login') }}">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="pass" placeholder="Password">
+            <p>Don't have an account? Sign up <a href="{{ url_for('register') }}">here</a>.</p>
+            <p style="font-size: 16px;">By using our website you agree to our <a href="{{ url_for('privacy_policy') }}">privacy policy</a> and <a href="{{ url_for('terms') }}">terms and conditions</a>.</p>
+            <button type="submit" style="margin-top: 20px;">Log In</button>
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% extends "menu.html" %}
+
+{% block body %}
+<div>
+  <div class="d-flex justify-content-center" style="padding-top: 5%;">
+  <div class="card text-white bg-success mb-3" style="width: 50%;">
+    <div class="card-header">
+      <div class="d-flex justify-content-around">
+      <p class="font-weight-bold h2">{{user}}'s portfolio</p>
+    </div>
+    <div class="d-flex justify-content-around">
+      <p class="lead">monies: {{monies}}</p>
+    </div>
+    </div>
+  </div>
+  </div>
+    {% for stonk in portfolio %}
+      <div class="accordion" id="accordionExample">
+        <div class="d-flex justify-content-center">
+        <div class="card" style="width: 50%;">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {{stonk.stonkInfo.regName}}
+              </button>
+            </h2>
+          </div>
+      
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="d-flex justify-content-around">
+              <p class="lead">amount of shares: {{stonk.stonkInfo.amount}}</p>
+            
+              <form method=POST action="{{ url_for('sell', meme_name=stonk.stonkInfo.stonkName) }}">
+                <div class="field">
+                    <input type="text" class="form-control" name="amount" placeholder="enter amount to sell">
+                </div>
+                <br>
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-block">sell</button>
+                </div>
+              </form>
+
+              <p class="lead">price: {{stonk.stonkInfo.stonkPrice}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    {% endfor %}
+
+  <div style="padding-top: 2.5%;" class="d-flex justify-content-center">
+    <p class="display-4">My posts</p>
+  </div>
+    {% for post in usersPosts|reverse %}
+    <div class="col">
+    <div style="padding-top: 2.5%;" class="d-flex justify-content-center">
+          <div style="width: 25%;" class="card">
+            <div class="card-header">
+              {{post.regName}}
+            </div>
+            <img class="card-img-top" 
+            src="{{post.url}}" 
+            alt="{{post.memeName}}">
+            <div class="card-body">
+              <h5 id="{{post.memeName}}price" class="card-title">price: {{post.price}} monies</h5>
+              <h5 id="{{post.memeName}}" class="card-title">copies left: {{post.totalShares}}</h5>
+              <p class="card-text">{{post.owner}}</p>
+              <p id="{{post.memeName}}err" class="text-danger"></p>
+              <button class="btn btn-primary btn-block" onclick="handleBuy('{{post.memeName}}')">buy</button>
+            </div>
+          </div>
+    </div>
+    </div>
+  {% endfor %}
+  </div>
+
+  <form method=POST action="{{ url_for('logout') }}">
+    <button type="submit" class="btn btn-danger">log out</button>
+</form>
+
+<script>
+  const handleBuy = async (memeName) => {
+    //alert(memeName)
+    const res = await fetch('/buy/'+memeName)
+    const data = await res.json()
+    const post = data.postToUpdate
+    console.log(post.totalShares)
+    if(post.totalShares > 0){
+      document.getElementById(post.memeName).innerHTML = "copies left: " + post.totalShares;
+    } else {
+      document.getElementById(post.memeName).innerHTML = "copies left: sold out";
+    }
+    if(data.message.length > 0){
+      document.getElementById(post.memeName+"err").innerHTML = data.message;
+    }
+    if(data.monies > -1){
+      document.getElementById("monie").innerHTML = "monies: " + data.monies;
+    }
+
+  }
+
+
+</script>
+
+
+{% endblock %}

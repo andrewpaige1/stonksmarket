@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Stonks | A meme Trading Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+
+    <div id="loginContainer">
+        <img id="logo" src="{{ url_for('static', filename='pictures/logo.png') }}">
+        <h1>Stonks</h1>
+        <h2 style="margin-bottom: 40px;">Sign up to find the real value of memes.</h2>
+        <form method=POST action="{{ url_for('register') }}">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Username">
+            <label>Password</label>
+            <input type="password" name="pass" placeholder="Password">
+            <label>Birthday</label>
+            <div class="selectWrapper">
+                <select name="month" class="custom-select">
+                    <option selected>Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="1">April</option>
+                    <option value="1">May</option>
+                    <option value="1">June</option>
+                    <option value="1">July</option>
+                    <option value="1">August</option>
+                    <option value="1">September</option>
+                    <option value="1">October</option>
+                    <option value="1">November</option>
+                    <option value="1">December</option>
+                </select>
+            </div>
+            <input type="text" name="day" placeholder="Day">
+            <input type="text" name="year" placeholder="Year">
+            <p>Already have an account? Log in <a href="{{ url_for('login_view') }}">here</a>.</p>
+            <p style="font-size: 16px;">By using our website you agree to our <a href="{{ url_for('privacy_policy') }}">privacy policy</a> and <a href="{{ url_for('terms') }}">terms and conditions</a>.</p>
+            <button type="submit" style="margin-top: 20px;">Sign Up</button>
+            <p id="textDanger">{{message}}</p>
+        </form>
+    </div>
+    
+</body>
+</html>

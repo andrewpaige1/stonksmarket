@@ -1,0 +1,45 @@
+{% extends "menu.html" %}
+
+{% block body %}
+
+{% for post in search_res|reverse %}
+    <div class="d-flex justify-content-center" style="padding-top: 5%;">
+      <div style="width: 25%;" class="card">
+        <div class="card-header">
+          {{post.regName}}
+        </div>
+        <img class="card-img-top" 
+        src="{{post.url}}" 
+        alt="{{post.memeName}}">
+        <div class="card-body">
+          <h5 id="{{post.memeName}}price" class="card-title">price: {{post.price}} monies</h5>
+          <h5 id="{{post.memeName}}" class="card-title">copies left: {{post.totalShares}}</h5>
+          <p class="card-text">{{post.owner}}</p>
+          <p id="{{post.memeName}}err" class="text-danger"></p>
+          <button class="btn btn-primary btn-block" onclick="handleBuy('{{post.memeName}}')">buy</button>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+<script>
+    const handleBuy = async (memeName) => {
+    //alert(memeName)
+    const res = await fetch('/buy/'+memeName)
+    const data = await res.json()
+    const post = data.postToUpdate
+    console.log(post.totalShares)
+    if(post.totalShares > 0){
+      document.getElementById(post.memeName).innerHTML = "copies left: " + post.totalShares;
+    } else {
+      document.getElementById(post.memeName).innerHTML = "copies left: sold out";
+    }
+    if(data.message.length > 0){
+      document.getElementById(post.memeName+"err").innerHTML = data.message;
+    }
+    if(data.monies > -1){
+      document.getElementById("monie").innerHTML = "monies: " + data.monies;
+    }
+
+  }
+</script>
+{% endblock %}

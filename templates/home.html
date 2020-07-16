@@ -1,0 +1,95 @@
+{% extends "menu.html" %}
+
+{% block body %}
+
+    <div id="homeContent">
+
+        <div id="homePortfolioParent">
+            <div id="homePortfolio">
+                <div id="homePortfolioMonies"><span style="font-weight: bold;">Monies</span> $<div id="monie">{{monies}}</div></div>
+                <div id="homePortfolioTitle">
+                    {% if portfolio|length == 0 %}
+                        Your portfolio is empty. Fix this by purchasing some stonks.
+                    {% endif %}
+                    {% if portfolio|length > 0 %}
+                        Your Portfolio
+                    {% endif %}
+                </div>
+                {% for stonk in portfolio %}
+                    <div class="homePortfolioListing">
+                        <div class="homePortfolioListingTitle">
+                            {{ stonk.stonkInfo.regName }}
+                        </div>
+                        <div class="homePortfolioListingPrice">
+                            <span style="font-weight: bold;">Price</span> ${{ stonk.stonkInfo.stonkPrice }}
+                        </div>
+                        <div class="homePortfolioListingShares">
+                            <span style="font-weight: bold;">Shares</span> {{ stonk.stonkInfo.amount }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="homeMarketParent">
+			{% for column in post_data | reverse | slice(3) %}
+			<div class="listingColumn">
+            {% for post in column %}
+                <div class="listingCard">
+					<div class="listingCardTitle">{{ post.regName }}</div>
+					<img class="listingCardImage" src="{{ post.url }}" alt="{{ post.memeName }}">
+					<div class="listingCardDetails">
+						<p>
+							<strong>Monies</strong> $<span id="{{ post.memeName }}price">{{ post.price }}</span>
+							<br>
+							<strong>Copies Left</strong> <span id="{{post.memeName}}">{{ post.totalShares }}</span>
+						</p>
+					</div>
+					<div class="listingCardOwner"><strong>Posted By</strong> {{ post.owner }}</div>
+					<p id="{{post.memeName}}err" class="text-danger"></p>
+                    <button class="buyListingButton" onclick="handleBuy('{{ post.memeName }}')">Buy Stonk</button>
+                </div>
+			{% endfor %}
+			</div>
+			{% endfor %}
+
+        </div>
+
+	</div>
+	
+	<script>
+
+		const handleBuy = async (memeName) => {
+			const res = await fetch('/buy/'+memeName)
+			const data = await res.json()
+			const post = data.postToUpdate
+			console.log(post.totalShares)
+			if(post.totalShares > 0){
+				document.getElementById(post.memeName).innerHTML = post.totalShares;
+			}
+			else{
+				document.getElementById(post.memeName).innerHTML = "Sold Out";
+			}
+			if(data.message.length > 0){
+				document.getElementById(post.memeName + "err").innerHTML = data.message;
+			}
+			if(data.monies > -1){
+				document.getElementById("monie").innerHTML = data.monies;
+			}
+		
+		}
+		
+		const changePrice = async (memeName) => {
+			const res = await fetch('/changePrice')
+			const data = await res.json()
+			const posts = data.allPosts
+			for(let post of posts) {
+				document.getElementById(post.memeName + "price").innerHTML = "price: " + post.price + " monies"
+			}
+		}
+		
+		setInterval(() => changePrice(), 1000*60*5.5);
+		
+	</script>
+
+{% endblock %}
