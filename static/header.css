@@ -1,0 +1,264 @@
+#header{
+    width: auto;
+    height: auto;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    background-color: #404040;
+    z-index: 1000;
+}
+
+#headerBodySpacer{
+    height: 85px;
+    width: auto;
+    position: relative;
+    display: block;
+}
+
+.headerSection{
+    width: auto;
+    height: auto;
+    position: relative;
+    display: inline-block;
+}
+
+/* Larger Screens */
+@media screen and (min-width: 1050px){
+    #headerLogo{
+        flex: 1;
+    }
+    
+    #headerSearch{
+        flex: 1;
+    }
+    
+    #headerNav{
+        flex: 1;
+    }
+}
+/* Medium Screens */
+@media screen and (max-width: 1050px) and (min-width: 780px){
+    #headerLogo{
+        padding-right: 40px;
+    }
+    
+    #headerSearch{
+        flex: 1;
+    }
+    
+    #headerNav{
+        flex: 1;
+    }
+}
+/* Mobile Screens */
+@media screen and (max-width: 780px){
+    #headerLogo{
+        width: auto;
+        height: auto;
+        position: relative;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    
+    #headerSearch{
+        position: absolute;
+        display: inline-block;
+        left: 20px;
+        top: 50%;
+    }
+    
+    #headerNav{
+        position: absolute;
+        display: inline-block;
+        right: 20px;
+        top: 50%;
+    }
+}
+
+#headerLogo img{ /* The img containing the logo */
+    max-height: 50px;
+    width: auto;
+    position: relative;
+    display: inline-block;
+    transition: 0.5s ease;
+}
+
+#headerLogo img:hover{
+    transform: rotate(25deg);
+}
+
+/* Larger Screens */
+@media screen and (min-width: 780px){
+    #headerSearch input{ /* The input field */
+        width: 100%;
+        height: auto;
+        position: absolute;
+        display: block;
+        background: none;
+        border: 1px solid #212529;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #mobileNavSearchBar{
+        display: none;
+    }
+
+    #searchIcon{
+        display: none;
+    }
+}
+
+/* Mobile Screens */
+@media screen and (max-width: 780px){
+    #headerSearch input{ /* The input field */
+        display: none;
+    }
+
+    #mobileNavSearchBar{
+        width: calc(100% - 40px);
+        height: auto;
+        position: relative;
+        display: block;
+        background: none;
+        border: 1px solid #212529;
+        border-radius: 10px;
+        padding: 10px;
+        margin: 20px 20px 0px 20px;
+        color: white;
+    }
+
+    #searchIcon{
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+/* Larger Screens */
+@media screen and (min-width: 780px){
+    #headerNav ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        text-align: right;
+    }
+
+    #headerNav li{
+        display: inline-block;
+    }
+
+    #headerNav li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.5s ease;
+        font-size: 18px;
+    }
+
+    #headerNav li a:hover{
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    #menuIcon{
+        display: none;
+    }
+
+    #menuCloseIcon{
+        display: none;
+    }
+}
+
+
+/* Mobile Screens */
+@media screen and (max-width: 780px){
+    #headerNav ul{
+        height: 100%;
+        max-width: 0;
+        width: 0;
+        position: fixed;
+        background-color: grey;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 3000;
+        display: block;
+        transition: 1s ease;
+        overflow: auto;
+        padding: 0;
+    }
+
+    .openNav{
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    #headerNav li{
+        display: block;
+    }
+
+    #headerNav li a{
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        transition: 0.5s ease;
+        font-size: 18px;
+    }
+
+    #headerNav li a:hover{
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    #menuIcon{
+        display: inline-block;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: 0.5s ease;
+        color: white;
+    }
+
+    #menuIcon:hover{
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    #menuCloseIcon{
+        position: relative;
+        display: block;
+        padding: 20px;
+        text-align: right;
+        transition: 0.5s ease;
+        color: white;
+    }
+
+    #menuCloseIcon:hover{
+        color: #007bff;
+        cursor: pointer;
+    }
+
+    #searchIcon{
+        color: white;
+        transition: 0.5s ease;
+    }
+
+    #searchIcon:hover{
+        color: #007bff;
+        cursor: pointer;
+    }
+}
+

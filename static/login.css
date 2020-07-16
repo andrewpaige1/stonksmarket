@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('pictures/loginBackground.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+@media screen and (min-width: 1080px){
+    #loginContainer{
+        background-color: #404040;
+        padding: 20px 40px 40px 40px;
+        position: fixed;
+        display: inline-block;
+        left: 0;
+        right: 60%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 1080px) and (min-width: 800px){
+    #loginContainer{
+        background-color: #404040;
+        padding: 20px 40px 40px 40px;
+        position: fixed;
+        display: inline-block;
+        left: 0;
+        right: 40%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 800px){
+    #loginContainer{
+        background-color: rgba(64, 64, 64, 0.90);
+        padding: 20px 40px 40px 40px;
+        position: fixed;
+        display: inline-block;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        overflow: auto;
+    }
+}
+
+#logo{
+    max-width: 60px;
+    height: auto;
+    position: relative;
+    display: block;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+h1{
+    font-size: 48px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+h2{
+    font-size: 32px;
+    color: #1f1f1f;
+    margin-top: 0;
+}
+
+p{
+    color: #1f1f1f;
+    font-size: 20px;
+}
+
+a{
+	color: #007bff;
+}
+
+label{
+    color: #1f1f1f;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: block;
+}
+
+input[type=text], input[type=password], select{
+    height: auto;
+    width: calc(100% - 20px);
+    position: relative;
+    display: block;
+    background: none;
+    color: white;
+    border: none;
+    border-bottom: 2px solid #007bff;
+    padding: 8px 10px 8px 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+select{
+    width: 100%;
+    padding: 8px 10px 8px 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.selectWrapper {
+	position: relative;	
+}
+
+.selectWrapper:after {
+    content: '\276F';
+    transform: rotate(90deg);
+  	font-size: 12px;
+  	position: absolute;
+  	top: 12px;
+  	right: 10px;
+  	color: white;
+  	pointer-events: none;
+}
+
+button[type=submit]{
+    width: auto;
+    height: auto;
+    position: relative;
+    display: block;
+    background-color: #007bff;
+    border-radius: 1000px;
+    border: none;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    outline: none;
+    transition: background 0.5s ease;
+}
+
+button[type=submit]:hover{
+    background-color: #0059b8;
+    cursor: pointer;
+}
+
+#textDanger{
+    color: red;
+}

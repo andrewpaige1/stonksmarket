@@ -1,0 +1,290 @@
+/* Portfolio Side */
+
+@media screen and (min-width: 940px){
+    #homeContent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 940px){
+    #homeContent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1500px){
+    #homePortfolioParent{
+        width: auto;
+        max-width: 30%;
+        height: auto;
+        position: relative;
+        display: inline-block;
+        flex-basis: 50%;
+        padding: 40px;
+        flex: 1;
+    }
+
+    #homePortfolio{
+        width: calc(30% - 80px);
+        height: 80vh;
+        position: fixed;
+        background-color: #525252;
+        border-radius: 15px;
+        overflow: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none; 
+    }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 940px){
+    #homePortfolioParent{
+        width: auto;
+        max-width: 25%;
+        height: auto;
+        position: relative;
+        display: inline-block;
+        flex-basis: 50%;
+        padding: 20px;
+        flex: 1;
+    }
+
+    #homePortfolio{
+        width: calc(25% - 20px);
+        height: 80vh;
+        position: fixed;
+        background-color: #525252;
+        border-radius: 15px;
+        overflow: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none; 
+    }
+}
+
+@media screen and (max-width: 940px){
+    #homePortfolioParent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: block;
+        flex-basis: 50%;
+        padding: 20px;
+    }
+
+    #homePortfolio{
+        width: auto;
+        height: auto;
+        position: relative;
+        background-color: #525252;
+        border-radius: 15px;
+        overflow: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none; 
+    }
+}
+
+#homePortfolio::-webkit-scrollbar {
+    display: none;
+  }
+
+#homePortfolioMonies{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 28px;
+    text-align: center;
+    position: relative;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#monie{
+    display: inline-block;
+}
+
+#homePortfolioTitle{
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #6d6c6c;
+    color: white;
+}
+
+.homePortfolioListing{
+    width: auto;
+    height: auto;
+    padding: 20px;
+    color: white;
+    text-align: left;
+}
+
+.homePortfolioListing:nth-last-child(){
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.homePortfolioListing:hover{
+    background-color: #474747;
+    cursor: pointer;
+}
+
+.homePortfolioListingTitle{
+    font-size: 20px;
+}
+
+/* Listing Side */
+
+@media screen and (min-width: 1500px){
+    #homeMarketParent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex: 1;
+        padding: 40px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 940px){
+    #homeMarketParent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: flex;
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 940px){
+    #homeMarketParent{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: block;
+        padding: 20px;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 940px){
+    .listingColumn{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+        flex: 1;
+    }
+}
+
+@media screen and (max-width: 940px){
+    .listingColumn{
+        width: auto;
+        height: auto;
+        position: relative;
+        display: block;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media screen and (min-width: 1500px){
+    .listingCard{
+        height: auto;
+        width: auto;
+        max-width: 300px;
+        position: relative;
+        display: inline-block;
+        background-color: #525252;
+        margin-bottom: 40px;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 940px){
+    .listingCard{
+        height: auto;
+        width: auto;
+        max-width: 250px;
+        position: relative;
+        display: inline-block;
+        background-color: #525252;
+        margin-bottom: 40px;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 940px){
+    .listingCard{
+        height: auto;
+        width: auto;
+        max-width: 400px;
+        position: relative;
+        display: block;
+        background-color: #525252;
+        margin-bottom: 40px;
+        border-radius: 15px;
+    }
+}
+
+.listingCardTitle{
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.listingCardImage{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+}
+
+.buyListingButton{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    position: relative;
+    display: block;
+    background-color: #6d6c6c;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    transition: background 0.5s ease;
+}
+
+.buyListingButton:hover{
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+.listingCardDetails{
+    padding-top: 10px;
+    font-size: 19px;
+    color: white;
+}
+
+.listingCardOwner{
+    color: white;
+}
