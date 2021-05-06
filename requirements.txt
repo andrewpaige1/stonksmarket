@@ -5,7 +5,7 @@ click==7.1.2
 cloudinary==1.21.1
 dnspython==1.16.0
 Flask==1.1.2
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-PyMongo==2.3.0
 Flask-Reuploaded==0.3.2
 Flask-Uploads==0.2.1
